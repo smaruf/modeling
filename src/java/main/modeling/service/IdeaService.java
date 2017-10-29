@@ -1,7 +1,7 @@
-package modeling.service;
+package service;
 
-import modeling.model.Comment;
-import modeling.model.Idea;
+import model.Comment;
+import model.Idea;
 
 import java.util.List;
 
@@ -11,8 +11,12 @@ import java.util.List;
  */
 public interface IdeaService {
     Idea saveIdea(Idea idea);
+
     Idea findIdeaByKey(String key);
+
     List<Idea> findAllIdea();
+
     Comment saveComment(Idea idea, Comment comment);
+
     Comment saveReply(Comment comment, Comment reply);
 }

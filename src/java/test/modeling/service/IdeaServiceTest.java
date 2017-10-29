@@ -1,13 +1,13 @@
-package modeling.service;
-
 import org.junit.Test;
+import service.IdeaFileServiceImpl;
+import service.IdeaService;
 
 /**
  * @author maruf
  * @since 10/29/17
  */
 public class IdeaServiceTest {
-    private IdeaService service = IdeaFileServiceImpl.getSerevice();
+    private IdeaService service = IdeaFileServiceImpl.getService();
 
     @Test
     public void saveIdea() throws Exception {
