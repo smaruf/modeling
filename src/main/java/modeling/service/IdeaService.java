@@ -1,7 +1,8 @@
-package service;
+package modeling.service;
 
-import model.Comment;
-import model.Idea;
+
+import modeling.model.Comment;
+import modeling.model.Idea;
 
 import java.util.List;
 

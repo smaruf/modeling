@@ -1,6 +1,6 @@
+import modeling.service.IdeaFileServiceImpl;
+import modeling.service.IdeaService;
 import org.junit.Test;
-import service.IdeaFileServiceImpl;
-import service.IdeaService;
 
 /**
  * @author maruf

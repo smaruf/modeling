@@ -1,8 +1,9 @@
-package service;
+package modeling.service;
 
-import model.Comment;
-import model.Idea;
-import repository.IdeaFileRepository;
+
+import modeling.model.Comment;
+import modeling.model.Idea;
+import modeling.repository.IdeaFileRepository;
 
 import java.util.List;
 import java.util.Objects;

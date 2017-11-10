@@ -1,9 +1,10 @@
-package model;
+package modeling.model;
 
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Set;
 @Setter
 @Getter
 @Builder
-public class User {
+public class User implements Serializable {
     private Set<Contribution> contribution;
     private java.util.Set<Contribution> contributions;
     private String key;

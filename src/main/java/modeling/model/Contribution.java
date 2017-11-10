@@ -1,7 +1,9 @@
-package model;
+package modeling.model;
 
 import lombok.Getter;
 import lombok.Setter;
+
+import java.io.Serializable;
 
 /**
  * @author maruf
@@ -9,7 +11,7 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public abstract class Contribution implements Serialization {
+public abstract class Contribution implements Serializable {
     private User user;
     private String key;
 

@@ -1,7 +1,8 @@
-package repository;
+package modeling.repository;
 
-import model.Comment;
-import model.Idea;
+
+import modeling.model.Comment;
+import modeling.model.Idea;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
