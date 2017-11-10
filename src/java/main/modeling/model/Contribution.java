@@ -9,12 +9,30 @@ import lombok.Setter;
  */
 @Setter
 @Getter
-public abstract class Contribution {
+public abstract class Contribution implements Serialization {
     private User user;
     private String key;
 
     public Contribution(User user, String key) {
         this.user = user;
         this.key = key;
+    }
+
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Contribution)) return false;
+        if (!super.equals(object)) return false;
+
+        Contribution that = (Contribution) object;
+
+        if (!key.equals(that.key)) return false;
+
+        return true;
+    }
+
+    public int hashCode() {
+        int result = super.hashCode();
+        result = 31 * result + key.hashCode();
+        return result;
     }
 }
