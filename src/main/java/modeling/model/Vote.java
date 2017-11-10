@@ -16,7 +16,7 @@ public class Vote extends Contribution {
 
     @Builder
     public Vote(User user, TextContribution contribution) {
-        super(user, contribution.getKey() + "-votes-" + contribution.getVotes().size() + "-" + Math.random());
+        super(user, contribution.getKey() + "-votes-" + Math.random());
         this.contribution = contribution;
     }
 

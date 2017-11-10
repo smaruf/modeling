@@ -5,6 +5,7 @@ import modeling.model.Comment;
 import modeling.model.Idea;
 import modeling.repository.IdeaFileRepository;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -59,8 +60,11 @@ public class IdeaFileServiceImpl implements IdeaService {
     @Override
     public Comment saveReply(Comment comment, Comment reply) {
         Objects.requireNonNull(comment);
-        Objects.requireNonNull(comment.getReplyOn());
-        Objects.requireNonNull(comment.getReplyOn().getKey());
+        Objects.requireNonNull(comment.getCommentOn());
+        Objects.requireNonNull(comment.getCommentOn().getKey());
+        if (Objects.isNull(comment.getReplies())) {
+            comment.setReplies(new HashSet<>());
+        }
         comment.getReplies().add(reply);
         return repository.saveComment(comment.getCommentOn(), comment);
     }

@@ -20,7 +20,7 @@ public class Comment extends TextContribution {
 
     @Builder
     public Comment(User user, Set<Vote> votes, String text, Idea commentOn, Set<Comment> replies, Comment replyOn) {
-        super(user, commentOn.getKey() + "-comment-" + commentOn.getComments().size() + "-" + Math.random(), votes, text);
+        super(user, commentOn.getKey() + "-comment-" + Math.random(), votes, text);
         this.commentOn = commentOn;
         this.replies = replies;
         this.replyOn = replyOn;

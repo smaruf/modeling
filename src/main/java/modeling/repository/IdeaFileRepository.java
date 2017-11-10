@@ -29,6 +29,10 @@ public enum IdeaFileRepository {
             keyValues = new LinkedHashMap<>();
         }
         try {
+            File file = new File(filePath);
+            if (!file.isDirectory()) {
+                file.mkdirs();
+            }
             inputStream = new FileInputStream(new File(filePath + fileName));
             ObjectInputStream stream = new ObjectInputStream(inputStream);
             //noinspection unchecked
