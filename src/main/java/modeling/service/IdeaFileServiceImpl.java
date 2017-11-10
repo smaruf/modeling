@@ -58,6 +58,10 @@ public class IdeaFileServiceImpl implements IdeaService {
 
     @Override
     public Comment saveReply(Comment comment, Comment reply) {
+        Objects.requireNonNull(comment);
+        Objects.requireNonNull(comment.getReplyOn());
+        Objects.requireNonNull(comment.getReplyOn().getKey());
+        comment.getReplies().add(reply);
         return repository.saveComment(comment.getCommentOn(), comment);
     }
 }

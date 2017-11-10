@@ -12,6 +12,7 @@ import java.util.Set;
 @Setter
 @Getter
 public abstract class TextContribution extends Contribution {
+    public static final long serialVersionId = 100012L;
     private Set<Vote> votes;
     private String Text;
 

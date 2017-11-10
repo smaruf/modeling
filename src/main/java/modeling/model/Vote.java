@@ -11,11 +11,12 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Vote extends Contribution {
+    public static final long serialVersionId = 100015L;
     private TextContribution contribution;
 
     @Builder
-    public Vote(User user, String key, TextContribution contribution) {
-        super(user, key);
+    public Vote(User user, TextContribution contribution) {
+        super(user, contribution.getKey() + "-votes-" + contribution.getVotes().size() + "-" + Math.random());
         this.contribution = contribution;
     }
 

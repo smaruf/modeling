@@ -16,7 +16,7 @@ public abstract class Contribution implements Serializable {
     private User user;
     private String key;
 
-    public Contribution(User user, String key) {
+    Contribution(User user, String key) {
         this.user = user;
         this.key = key;
     }
@@ -28,9 +28,7 @@ public abstract class Contribution implements Serializable {
 
         Contribution that = (Contribution) object;
 
-        if (!key.equals(that.key)) return false;
-
-        return true;
+        return key.equals(that.key);
     }
 
     public int hashCode() {

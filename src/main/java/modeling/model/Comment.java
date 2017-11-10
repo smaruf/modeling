@@ -13,13 +13,14 @@ import java.util.Set;
 @Setter
 @Getter
 public class Comment extends TextContribution {
+    public static final long serialVersionId = 100014L;
     private Idea commentOn;
     private Set<Comment> replies;
     private Comment replyOn;
 
     @Builder
-    public Comment(User user, String key, Set<Vote> votes, String text, Idea commentOn, Set<Comment> replies, Comment replyOn) {
-        super(user, key, votes, text);
+    public Comment(User user, Set<Vote> votes, String text, Idea commentOn, Set<Comment> replies, Comment replyOn) {
+        super(user, commentOn.getKey() + "-comment-" + commentOn.getComments().size() + "-" + Math.random(), votes, text);
         this.commentOn = commentOn;
         this.replies = replies;
         this.replyOn = replyOn;

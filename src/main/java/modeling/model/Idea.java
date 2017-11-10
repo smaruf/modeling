@@ -13,6 +13,7 @@ import java.util.Set;
 @Setter
 @Getter
 public class Idea extends TextContribution {
+    public static final long serialVersionId = 100013L;
     private java.util.Set<Comment> comments;
     private String title;
 

@@ -75,7 +75,6 @@ public enum IdeaFileRepository {
             idea.setComments(new LinkedHashSet<>());
         }
         idea.getComments().add(comment);
-        comment.setKey(idea.getKey() + "-comments-" + idea.getComments().size());
         saveIdea(idea);
         return getComment(idea.getComments(), comment.getKey());
     }

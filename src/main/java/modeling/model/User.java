@@ -15,6 +15,7 @@ import java.util.Set;
 @Getter
 @Builder
 public class User implements Serializable {
+    public static final long serialVersionId = 100016L;
     private Set<Contribution> contribution;
     private Set<Contribution> contributions;
     private String key;
