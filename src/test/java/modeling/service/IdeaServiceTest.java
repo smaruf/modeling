@@ -1,5 +1,5 @@
-import modeling.service.IdeaFileServiceImpl;
-import modeling.service.IdeaService;
+package modeling.service;
+
 import org.junit.Test;
 
 /**
