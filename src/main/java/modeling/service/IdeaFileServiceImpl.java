@@ -17,10 +17,10 @@ public class IdeaFileServiceImpl implements IdeaService {
     private final IdeaFileRepository repository;
 
     private IdeaFileServiceImpl() {
-        this.repository = IdeaFileRepository.STORE;
+        this.repository = IdeaFileRepository.get();
     }
 
-    public static IdeaService getService() {
+    static IdeaService getService() {
         return service;
     }
 

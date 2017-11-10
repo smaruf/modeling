@@ -24,4 +24,14 @@ public class Comment extends TextContribution {
         this.replies = replies;
         this.replyOn = replyOn;
     }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "commentOn=" + commentOn +
+                ", replyOn=" + replyOn +
+                ", key=" + getKey() +
+                ", text=" + getText() +
+                '}';
+    }
 }

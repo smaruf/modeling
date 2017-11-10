@@ -18,4 +18,12 @@ public class Vote extends Contribution {
         super(user, key);
         this.contribution = contribution;
     }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "contribution=" + contribution +
+                "key=" + getKey() +
+                '}';
+    }
 }

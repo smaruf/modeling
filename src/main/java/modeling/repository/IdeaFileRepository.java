@@ -4,12 +4,8 @@ package modeling.repository;
 import modeling.model.Comment;
 import modeling.model.Idea;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.io.*;
+import java.util.*;
 
 /**
  * @author maruf
@@ -17,20 +13,61 @@ import java.util.Set;
  */
 public enum IdeaFileRepository {
     STORE;
-    private FileInputStream inputStream;
-    private FileOutputStream outputStream;
-    private List<Idea> ideaList;
+    private static final String filePath = "data-store/";
+    private static final String fileName = "key-values";
+    private static LinkedHashMap<String, Idea> keyValues;
+    private static FileInputStream inputStream;
+    private static FileOutputStream outputStream;
+
+    public static IdeaFileRepository get() {
+        initKeyValue();
+        return STORE;
+    }
+
+    private static void initKeyValue() {
+        if (Objects.isNull(keyValues)) {
+            keyValues = new LinkedHashMap<>();
+        }
+        try {
+            inputStream = new FileInputStream(new File(filePath + fileName));
+            ObjectInputStream stream = new ObjectInputStream(inputStream);
+            //noinspection unchecked
+            keyValues = (LinkedHashMap<String, Idea>) stream.readObject();
+            stream.close();
+            inputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Idea saveIdea(Idea idea) {
-        return null;
+        keyValues.put(idea.getKey(), idea);
+        saveKeyValues();
+        return idea;
+    }
+
+    private void saveKeyValues() {
+        if (Objects.nonNull(keyValues)) {
+            try {
+                outputStream = new FileOutputStream(new File(filePath + fileName));
+                ObjectOutputStream stream = new ObjectOutputStream(outputStream);
+                stream.writeObject(keyValues);
+                stream.close();
+                outputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public Idea findIdeaByKey(String key) {
-        return null;
+        return keyValues.get(key);
     }
 
     public List<Idea> findAllIdea() {
-        return ideaList;
+        return new ArrayList<>(keyValues.values());
     }
 
     public Comment saveComment(Idea idea, Comment comment) {

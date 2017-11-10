@@ -16,7 +16,7 @@ import java.util.Set;
 @Builder
 public class User implements Serializable {
     private Set<Contribution> contribution;
-    private java.util.Set<Contribution> contributions;
+    private Set<Contribution> contributions;
     private String key;
 
     public boolean equals(Object object) {

@@ -12,6 +12,7 @@ import java.io.Serializable;
 @Setter
 @Getter
 public abstract class Contribution implements Serializable {
+    public static final long serialVersionId = 100011L;
     private User user;
     private String key;
 
