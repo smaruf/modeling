@@ -25,9 +25,6 @@ public enum IdeaFileRepository {
     }
 
     private static void initKeyValue() {
-        if (Objects.isNull(keyValues)) {
-            keyValues = new LinkedHashMap<>();
-        }
         try {
             File file = new File(filePath);
             if (!file.isDirectory()) {
@@ -39,10 +36,11 @@ public enum IdeaFileRepository {
             keyValues = (LinkedHashMap<String, Idea>) stream.readObject();
             stream.close();
             inputStream.close();
-        } catch (IOException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        }
+        if (Objects.isNull(keyValues)) {
+            keyValues = new LinkedHashMap<>();
         }
     }
 
